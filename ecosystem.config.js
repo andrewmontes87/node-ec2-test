@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'node-ec2-test',
-    script: './index.js'
+    script: 'node index.js'
   }],
   deploy: {
     production: {
@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/node-ec2-test.pem',
       ref: 'origin/master',
       repo: 'https://github.com/andrewmontes87/node-ec2-test.git',
-      path: '/home/ec2-user/node-ec2-test/current',
+      path: '/home/ec2-user/node-ec2-test',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
