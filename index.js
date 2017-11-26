@@ -1,5 +1,10 @@
-
-const express = require('express')
-const app = express()
-app.use(express.static('public'))
-app.listen(3000, () => console.log('Server running on port 3000'))
+require('babel-register');
+ 
+// app is imported through require and so, gets transpiled
+const app = require('./src/app').app,
+      PORT = process.env.PORT || 3000;
+ 
+// We initialize the server here
+app.listen(PORT, () => {
+    console.log('Server listening on port', PORT);
+});
